@@ -1,0 +1,36 @@
+.cosmicBackground {
+  background-image: url("/cosmic-background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.glassMorphism {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(9, 180, 198, 0.2);
+}
+
+.cardHover {
+  transition: all 0.3s ease;
+}
+
+.cardHover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(8, 145, 178, 0.2);
+}
+
+.gradientText {
+  background: linear-gradient(to right, rgb(56, 189, 248), rgb(59, 130, 246));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.particleOverlay {
+  background-image: url("/stars-pattern.png");
+  background-size: 500px;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+}
