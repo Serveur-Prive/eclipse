@@ -4,85 +4,176 @@ import type React from "react"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { ArrowLeft, Mail, Lock, Eye, EyeOff, AlertCircle } from "lucide-react"
 
-export default function Login() {
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { useAuth } from "@/contexts/auth-context"
+
+export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState("")
   const router = useRouter()
+  const { login } = useAuth()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError("")
+    setIsSubmitting(true)
 
     try {
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      })
-
-      if (res.ok) {
-        router.push("/dashboard")
-      } else {
-        const errorData = await res.json()
-        setError(errorData.message || "Invalid Credentials")
-      }
-    } catch (error) {
-      console.error("Login failed:", error)
-      setError("Login failed. Please try again.")
+      await login(email, password)
+      // La redirection est gérée dans le contexte d'authentification
+    } catch (err) {
+      console.error("Erreur de connexion:", err)
+      setError(
+        err instanceof Error ? err.message : "Échec de la connexion. Veuillez vérifier vos identifiants et réessayer.",
+      )
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword)
+  }
+
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-96">
-        <h1 className="text-2xl font-semibold mb-4 text-center">STASIS Login</h1>
-        {error && <div className="text-red-500 mb-4">{error}</div>}
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-            />
-          </div>
-          <div className="mb-6">
-            <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-            />
-          </div>
-          <div className="flex items-center justify-between">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="submit"
-            >
-              Sign In
-            </button>
-            <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-              Forgot Password?
-            </a>
-          </div>
-        </form>
+    <div className="flex min-h-screen flex-col bg-black relative">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <Image src="/dofus-header-bg.png" alt="Background" fill className="object-cover opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
       </div>
+
+      {/* Navigation */}
+      <header className="relative z-10 bg-black/50 backdrop-blur-sm border-b border-primary/30">
+        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+              STASIS
+            </span>
+          </Link>
+          <Link href="/">
+            <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Retour à l'accueil
+            </Button>
+          </Link>
+        </div>
+      </header>
+
+      <main className="flex-1 relative z-10 py-12 flex items-center justify-center">
+        <div className="container px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-md mx-auto"
+          >
+            <Card className="bg-gradient-to-r from-black/70 to-primary/30 backdrop-blur-sm border-primary/30 overflow-hidden">
+              <CardContent className="p-6">
+                <div className="text-center mb-6">
+                  <h1 className="text-2xl font-bold text-white">Connexion</h1>
+                  <p className="text-white/70 mt-2">Connectez-vous pour accéder à votre compte</p>
+                </div>
+
+                {error && (
+                  <div className="bg-red-500/20 border border-red-500/50 text-red-200 p-3 rounded-md mb-6 flex items-start">
+                    <AlertCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>{error}</span>
+                  </div>
+                )}
+
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-white">
+                      Adresse email
+                    </label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50 h-4 w-4" />
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="votre@email.com"
+                        className="pl-10 bg-black/50 border-primary/30 text-white"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <label htmlFor="password" className="text-sm font-medium text-white">
+                        Mot de passe
+                      </label>
+                      <Link href="/mot-de-passe-oublie" className="text-primary hover:text-primary/80 text-sm">
+                        Mot de passe oublié?
+                      </Link>
+                    </div>
+                    <div className="relative">
+                      <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50 h-4 w-4" />
+                      <Input
+                        id="password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="••••••••"
+                        className="pl-10 pr-10 bg-black/50 border-primary/30 text-white"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                      />
+                      <button
+                        type="button"
+                        onClick={toggleShowPassword}
+                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white"
+                      >
+                        {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                      </button>
+                    </div>
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary hover:to-accent text-white border-0"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Connexion en cours..." : "Se connecter"}
+                  </Button>
+
+                  <div className="text-center mt-4">
+                    <p className="text-white/70 text-sm">
+                      Vous n'avez pas de compte?{" "}
+                      <Link href="/register" className="text-primary hover:text-primary/80">
+                        S'inscrire
+                      </Link>
+                    </p>
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="relative z-10 bg-black/50 backdrop-blur-sm border-t border-primary/30">
+        <div className="container px-4 py-6 md:px-6">
+          <div className="text-center">
+            <p className="text-xs text-white/50">
+              &copy; 2025 Dofus STASIS. Tous droits réservés. Non affilié à Ankama Games.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
