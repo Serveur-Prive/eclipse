@@ -355,20 +355,15 @@ export default function Home() {
             >
               <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">Prêt à Jouer ?</h2>
               <p className="text-lg text-foreground/90 max-w-2xl mx-auto mb-8">
-                Téléchargez notre lanceur personnalisé et rejoignez l'aventure dès aujourd'hui
+                Téléchargez notre launcher personnalisé et rejoignez l'aventure dès aujourd'hui
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button size="lg" className="h-12 px-8 shadow-lg shadow-primary/20 transition-all hover:scale-105">
-                  Télécharger le Lanceur
-                  <Download className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="h-12 px-8 border-primary/50 shadow-lg shadow-primary/10 transition-all hover:scale-105"
-                >
-                  Guide d'Installation
-                </Button>
+                <Link href="/nous-rejoindre">
+                  <Button size="lg" className="h-12 px-8 shadow-lg shadow-primary/20 transition-all hover:scale-105">
+                    Télécharger le Launcher
+                    <Download className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
               <div className="mt-8 flex flex-wrap justify-center gap-6">
                 <div className="flex items-center text-foreground/80">

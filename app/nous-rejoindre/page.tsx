@@ -131,7 +131,7 @@ export default function NousRejoindre() {
                     </div>
 
                     <p className="text-white/70 mb-6 pl-11">
-                      Téléchargez notre lanceur personnalisé pour accéder facilement au serveur Dofus STASIS.
+                      Téléchargez notre launcher personnalisé pour accéder facilement au serveur Dofus STASIS.
                     </p>
 
                     <div className="bg-black/50 border border-primary/20 rounded-lg p-4 mb-6">
@@ -139,7 +139,7 @@ export default function NousRejoindre() {
                       <ul className="space-y-3">
                         <li className="flex items-start">
                           <Check className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                          <p className="text-white/80">Téléchargez le lanceur pour Windows (environ 174 Mo)</p>
+                          <p className="text-white/80">Téléchargez le launcher pour Windows (environ 174 Mo)</p>
                         </li>
                         <li className="flex items-start">
                           <Check className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
@@ -148,7 +148,7 @@ export default function NousRejoindre() {
                         <li className="flex items-start">
                           <Check className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
                           <p className="text-white/80">
-                            Le lanceur téléchargera automatiquement les fichiers nécessaires (environ 2 Go)
+                            Le launcher téléchargera automatiquement les fichiers nécessaires (environ 2 Go)
                           </p>
                         </li>
                       </ul>
@@ -159,7 +159,7 @@ export default function NousRejoindre() {
                         className="block w-full mt-4"
                       >
                         <Button className="w-full bg-gradient-to-r from-primary to-accent text-white border-0">
-                          Télécharger le lanceur
+                          Télécharger le launcher
                           <Download className="ml-2 h-4 w-4" />
                         </Button>
                       </a>
