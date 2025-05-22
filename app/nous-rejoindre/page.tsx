@@ -153,7 +153,7 @@ export default function NousRejoindre() {
                         </li>
                       </ul>
                       <a
-                        href="https://github.com/Serveur-Prive/ERAZIEL_LAUNCHER/releases/download/ERAZIEL_LAUNCHER/ERAZIEL_LAUNCHER.zip"
+                        href="https://github.com/Serveur-Prive/mon/releases/download/tttt/STASIS_Launcher.zip"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block w-full mt-4"

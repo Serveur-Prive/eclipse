@@ -2,14 +2,10 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { User, LogOut, Download } from "lucide-react"
+import { User, LogOut } from "lucide-react"
 import { useAuth } from "@/contexts/auth-context"
 
 export default function NavBar() {
-  // Lien de téléchargement du launcher
-  const LAUNCHER_URL =
-    "https://pkt7pze2mm9hmqjt.public.blob.vercel-storage.com/STASIS_Launcher-87RC1LX7BdAH0IeqS1r8AXFR5e3Upj.zip"
-
   // Utiliser le contexte d'authentification pour déterminer si l'utilisateur est connecté
   const { user, logout } = useAuth()
   const isLoggedIn = !!user
@@ -65,23 +61,10 @@ export default function NavBar() {
           >
             Classement
           </Link>
-          <Link
-            href="/telecharger"
-            className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
-          >
-            <Download className="h-3 w-3 mr-1" />
-            Télécharger
-          </Link>
         </nav>
         <div className="flex items-center gap-2">
           {isLoggedIn ? (
             <>
-              <Link href={LAUNCHER_URL} download="STASIS_Launcher.zip">
-                <Button variant="outline" className="border-primary/50 text-foreground hover:bg-accent/10">
-                  <Download className="h-4 w-4 mr-2" />
-                  Télécharger
-                </Button>
-              </Link>
               <Link href="/profile">
                 <Button variant="ghost" className="text-foreground hover:bg-accent/10">
                   <User className="h-4 w-4 mr-2" />
@@ -99,12 +82,6 @@ export default function NavBar() {
             </>
           ) : (
             <>
-              <Link href={LAUNCHER_URL} download="STASIS_Launcher.zip">
-                <Button variant="outline" className="border-primary/50 text-foreground hover:bg-accent/10">
-                  <Download className="h-4 w-4 mr-2" />
-                  Télécharger
-                </Button>
-              </Link>
               <Link href="/login">
                 <Button variant="ghost" className="text-foreground hover:bg-accent/10">
                   Connexion
