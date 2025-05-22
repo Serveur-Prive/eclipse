@@ -6,7 +6,7 @@ import { AuthProvider } from "@/contexts/auth-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Dofus Eraziel 2.51 - Serveur privé",
+  title: "Dofus STASIS 2.51 - Serveur privé",
   description: "Serveur privé Dofus 2.51 avec des fonctionnalités uniques et une communauté active.",
     generator: 'v0.dev'
 }

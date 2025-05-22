@@ -55,6 +55,9 @@ export async function initDatabase() {
   }
 }
 
+// Exporter également sous le nom initializeDatabase pour la compatibilité
+export const initializeDatabase = initDatabase
+
 // Helper function to check if a table exists
 async function checkTableExists(tableName: string): Promise<boolean> {
   try {

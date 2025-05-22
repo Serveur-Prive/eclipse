@@ -115,7 +115,7 @@ export default function ClassesSection() {
   return (
     <div className="max-w-6xl mx-auto">
       <Tabs defaultValue={activeClass} onValueChange={setActiveClass} className="w-full">
-        <TabsList className="grid grid-cols-2 md:grid-cols-4 bg-black/80 border border-red-800/30 p-1 mb-8">
+        <TabsList className="grid grid-cols-2 md:grid-cols-4 bg-card border border-primary/30 p-1 mb-8">
           {classes.map((classItem) => (
             <TabsTrigger key={classItem.id} value={classItem.id}>
               {classItem.name}
@@ -130,27 +130,27 @@ export default function ClassesSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-black/80 backdrop-blur-md border border-red-800/30 rounded-xl p-6"
+                className="bg-card backdrop-blur-md border border-primary/30 rounded-xl p-6"
               >
                 <div className="flex items-center mb-4">
-                  <div className="bg-red-700 text-white text-sm px-3 py-1 rounded-md mr-3 flex items-center">
+                  <div className="bg-primary text-primary-foreground text-sm px-3 py-1 rounded-md mr-3 flex items-center">
                     <Sparkles className="h-3 w-3 mr-1" />
                     <span>CLASSE HYBRIDE</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white">{classItem.name}</h3>
+                  <h3 className="text-2xl font-bold text-foreground">{classItem.name}</h3>
                 </div>
 
-                <p className="text-white/80 mb-6 text-lg">{classItem.description}</p>
+                <p className="text-foreground/80 mb-6 text-lg">{classItem.description}</p>
 
                 <div className="mb-6">
-                  <h4 className="text-lg font-medium text-white mb-4 border-b border-red-800/30 pb-2">
+                  <h4 className="text-lg font-medium text-foreground mb-4 border-b border-primary/30 pb-2">
                     Sorts Principaux
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {classItem.spells.map((spell, index) => (
                       <div
                         key={index}
-                        className="bg-black/50 border border-red-800/20 rounded-lg p-4 hover:border-red-600/50 transition-colors"
+                        className="bg-background/50 border border-primary/20 rounded-lg p-4 hover:border-primary/50 transition-colors"
                       >
                         <div className="flex items-start">
                           <div className="relative w-12 h-12 mr-3 flex-shrink-0 overflow-hidden">
@@ -163,8 +163,8 @@ export default function ClassesSection() {
                             />
                           </div>
                           <div>
-                            <h5 className="text-white font-medium">{spell.name}</h5>
-                            <p className="text-sm text-white/70">{spell.description}</p>
+                            <h5 className="text-foreground font-medium">{spell.name}</h5>
+                            <p className="text-sm text-foreground/70">{spell.description}</p>
                           </div>
                         </div>
                       </div>
@@ -173,7 +173,7 @@ export default function ClassesSection() {
                 </div>
 
                 <Link href="/classes">
-                  <Button className="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white border-0 w-full md:w-auto">
+                  <Button className="w-full md:w-auto">
                     Voir Toutes les Classes
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>

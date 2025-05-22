@@ -241,38 +241,38 @@ export default function ClassesPage() {
       </div>
 
       {/* Navigation */}
-      <header className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-cyan-900/50">
+      <header className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-lg border-primary/30">
         <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
               ERAZIEL 2.51
             </span>
           </Link>
           <nav className="hidden md:flex gap-6">
-            <Link href="/#classes" className="text-sm font-medium text-white/90 hover:text-cyan-400 transition-colors">
+            <Link href="/#classes" className="text-sm font-medium text-white/90 hover:text-primary transition-colors">
               Classes Hybrides
             </Link>
-            <Link href="/#pvp" className="text-sm font-medium text-white/90 hover:text-cyan-400 transition-colors">
+            <Link href="/#pvp" className="text-sm font-medium text-white/90 hover:text-primary transition-colors">
               PvP & PvM
             </Link>
-            <Link href="/#kolizeum" className="text-sm font-medium text-white/90 hover:text-cyan-400 transition-colors">
+            <Link href="/#kolizeum" className="text-sm font-medium text-white/90 hover:text-primary transition-colors">
               Kolizeum
             </Link>
-            <Link href="/#events" className="text-sm font-medium text-white/90 hover:text-cyan-400 transition-colors">
+            <Link href="/#events" className="text-sm font-medium text-white/90 hover:text-primary transition-colors">
               Événements
             </Link>
-            <Link href="/#upgrade" className="text-sm font-medium text-white/90 hover:text-cyan-400 transition-colors">
+            <Link href="/#upgrade" className="text-sm font-medium text-white/90 hover:text-primary transition-colors">
               Upgrades
             </Link>
           </nav>
           <div className="flex items-center gap-2">
             <Link href="/login">
-              <Button variant="ghost" className="text-white hover:bg-cyan-900/20">
+              <Button variant="ghost" className="text-white hover:bg-primary/20">
                 Connexion
               </Button>
             </Link>
             <Link href="/register">
-              <Button className="bg-gradient-to-r from-cyan-600 to-blue-800 hover:from-cyan-700 hover:to-blue-900 text-white border-0">
+              <Button className="bg-gradient-to-r from-primary/80 to-accent/80 hover:from-primary/80 hover:to-accent/80 text-white border-0">
                 S'inscrire
               </Button>
             </Link>
@@ -289,7 +289,7 @@ export default function ClassesPage() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="rounded-full border-cyan-700 hover:bg-cyan-900/20 text-white"
+                  className="rounded-full border-primary/30 hover:bg-primary/20 text-white"
                 >
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   Retour à l'accueil
@@ -302,9 +302,7 @@ export default function ClassesPage() {
                 transition={{ duration: 0.6 }}
               >
                 Classes{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
-                  Hybrides
-                </span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Hybrides</span>
               </motion.h1>
               <motion.p
                 className="text-xl text-white/80 max-w-3xl"
@@ -324,7 +322,7 @@ export default function ClassesPage() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
                   Hybrides à Deux Classes
                 </span>
               </motion.h2>
@@ -337,18 +335,18 @@ export default function ClassesPage() {
                     transition={{ duration: 0.5, delay: index * 0.05 }}
                     whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
                   >
-                    <Card className="bg-gradient-to-r from-black/70 to-cyan-950/30 backdrop-blur-md border-cyan-800/30 overflow-hidden h-full hover:border-cyan-600/50 transition-colors shadow-lg shadow-cyan-900/20">
+                    <Card className="bg-gradient-to-r from-black/70 to-primary/30 backdrop-blur-md border-primary/30 overflow-hidden h-full hover:border-primary/30 transition-colors shadow-primary/20">
                       <CardContent className="p-0">
                         <div className="relative h-48 overflow-hidden">
                           {/* Utilisation de l'image complète pour toutes les classes */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 z-10" />
                           <div className="relative h-full w-full">
-                            <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 to-blue-900/30" />
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30" />
                             <Image src="/dofus-classes.png" alt={classItem.name} fill className="object-cover" />
                           </div>
                           <div className="absolute top-0 left-0 w-full p-4 z-20">
                             <div
-                              className={`bg-gradient-to-r from-cyan-700 to-blue-800 text-white text-xs px-2 py-1 rounded-md inline-flex items-center`}
+                              className={`bg-gradient-to-r from-primary/80 to-accent/80 text-white text-xs px-2 py-1 rounded-md inline-flex items-center`}
                             >
                               <Sparkles className="h-3 w-3 mr-1" />
                               <span>Classe Hybride</span>
@@ -363,19 +361,19 @@ export default function ClassesPage() {
                           <p className="text-white/70 text-sm mb-4">{classItem.description}</p>
 
                           <div className="flex items-center mb-3">
-                            <Sword className="h-4 w-4 text-cyan-500 mr-2" />
+                            <Sword className="h-4 w-4 text-primary mr-2" />
                             <h4 className="text-white font-medium text-sm">Style de jeu: {classItem.playstyle}</h4>
                           </div>
 
                           <div className="flex items-center mb-3">
-                            <Shield className="h-4 w-4 text-cyan-500 mr-2" />
+                            <Shield className="h-4 w-4 text-primary mr-2" />
                             <h4 className="text-white font-medium text-sm">
                               Difficulté:
                               <span className="ml-2">
                                 {Array.from({ length: 5 }).map((_, i) => (
                                   <span
                                     key={i}
-                                    className={`inline-block w-2 h-2 rounded-full mx-0.5 ${i < classItem.difficulty ? "bg-cyan-500" : "bg-cyan-950/30"}`}
+                                    className={`inline-block w-2 h-2 rounded-full mx-0.5 ${i < classItem.difficulty ? "bg-primary" : "bg-primary/20"}`}
                                   ></span>
                                 ))}
                               </span>
@@ -384,7 +382,7 @@ export default function ClassesPage() {
 
                           <div className="mb-3">
                             <div className="flex items-center mb-1">
-                              <Zap className="h-4 w-4 text-cyan-500 mr-2" />
+                              <Zap className="h-4 w-4 text-primary mr-2" />
                               <h4 className="text-white font-medium text-sm">Forces:</h4>
                             </div>
                             <ul className="pl-6 text-white/70 text-xs space-y-1">
@@ -398,7 +396,7 @@ export default function ClassesPage() {
 
                           <div>
                             <div className="flex items-center mb-1">
-                              <Heart className="h-4 w-4 text-cyan-500 mr-2" />
+                              <Heart className="h-4 w-4 text-primary mr-2" />
                               <h4 className="text-white font-medium text-sm">Faiblesses:</h4>
                             </div>
                             <ul className="pl-6 text-white/70 text-xs space-y-1">
@@ -424,7 +422,7 @@ export default function ClassesPage() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
                   Hybrides à Trois Classes
                 </span>
               </motion.h2>
@@ -437,18 +435,18 @@ export default function ClassesPage() {
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.05 }}
                     whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
                   >
-                    <Card className="bg-gradient-to-r from-black/70 to-cyan-950/30 backdrop-blur-md border-cyan-800/30 overflow-hidden h-full hover:border-cyan-600/50 transition-colors shadow-lg shadow-cyan-900/20">
+                    <Card className="bg-gradient-to-r from-black/70 to-primary/30 backdrop-blur-md border-primary/30 overflow-hidden h-full hover:border-primary/30 transition-colors shadow-primary/20">
                       <CardContent className="p-0">
                         <div className="relative h-48 overflow-hidden">
                           {/* Utilisation de l'image complète pour toutes les classes */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 z-10" />
                           <div className="relative h-full w-full">
-                            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30" />
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30" />
                             <Image src="/dofus-classes.png" alt={classItem.name} fill className="object-cover" />
                           </div>
                           <div className="absolute top-0 left-0 w-full p-4 z-20">
                             <div
-                              className={`bg-gradient-to-r from-blue-600 to-purple-800 text-white text-xs px-2 py-1 rounded-md inline-flex items-center`}
+                              className={`bg-gradient-to-r from-primary/90 to-accent/90 text-white text-xs px-2 py-1 rounded-md inline-flex items-center`}
                             >
                               <Sparkles className="h-3 w-3 mr-1" />
                               <span>Triple Classe</span>
@@ -463,19 +461,19 @@ export default function ClassesPage() {
                           <p className="text-white/70 text-sm mb-4">{classItem.description}</p>
 
                           <div className="flex items-center mb-3">
-                            <Sword className="h-4 w-4 text-cyan-500 mr-2" />
+                            <Sword className="h-4 w-4 text-primary mr-2" />
                             <h4 className="text-white font-medium text-sm">Style de jeu: {classItem.playstyle}</h4>
                           </div>
 
                           <div className="flex items-center mb-3">
-                            <Shield className="h-4 w-4 text-cyan-500 mr-2" />
+                            <Shield className="h-4 w-4 text-primary mr-2" />
                             <h4 className="text-white font-medium text-sm">
                               Difficulté:
                               <span className="ml-2">
                                 {Array.from({ length: 5 }).map((_, i) => (
                                   <span
                                     key={i}
-                                    className={`inline-block w-2 h-2 rounded-full mx-0.5 ${i < classItem.difficulty ? "bg-cyan-500" : "bg-cyan-950/30"}`}
+                                    className={`inline-block w-2 h-2 rounded-full mx-0.5 ${i < classItem.difficulty ? "bg-primary" : "bg-primary/20"}`}
                                   ></span>
                                 ))}
                               </span>
@@ -484,7 +482,7 @@ export default function ClassesPage() {
 
                           <div className="mb-3">
                             <div className="flex items-center mb-1">
-                              <Zap className="h-4 w-4 text-cyan-500 mr-2" />
+                              <Zap className="h-4 w-4 text-primary mr-2" />
                               <h4 className="text-white font-medium text-sm">Forces:</h4>
                             </div>
                             <ul className="pl-6 text-white/70 text-xs space-y-1">
@@ -498,7 +496,7 @@ export default function ClassesPage() {
 
                           <div>
                             <div className="flex items-center mb-1">
-                              <Heart className="h-4 w-4 text-cyan-500 mr-2" />
+                              <Heart className="h-4 w-4 text-primary mr-2" />
                               <h4 className="text-white font-medium text-sm">Faiblesses:</h4>
                             </div>
                             <ul className="pl-6 text-white/70 text-xs space-y-1">
@@ -521,7 +519,7 @@ export default function ClassesPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-black/50 backdrop-blur-lg border-t border-cyan-900/30 relative z-10">
+      <footer className="bg-black/50 backdrop-blur-lg border-t border-primary/30 relative z-10">
         <div className="container px-4 py-8 md:px-6">
           <div className="text-center">
             <p className="text-xs text-white/50">

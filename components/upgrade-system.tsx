@@ -14,7 +14,7 @@ export default function UpgradeSystem() {
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div>
-          <Card className="bg-gradient-to-r from-black to-red-950/30 backdrop-blur-sm border-red-800/30 overflow-hidden h-full">
+          <Card className="bg-gradient-to-r from-black to-primary/30 backdrop-blur-sm border-primary/30 overflow-hidden h-full">
             <CardContent className="p-6">
               <h3 className="text-xl font-bold text-white mb-4">Système d'Amélioration</h3>
               <p className="text-white/70 mb-6">
@@ -36,21 +36,21 @@ export default function UpgradeSystem() {
                     <span className="text-sm text-white/70">Niveau d'amélioration</span>
                     <span className="text-sm text-white">0 / 10</span>
                   </div>
-                  <div className="bg-black/50 border border-red-800/20 rounded-lg p-1">
+                  <div className="bg-black/50 border border-primary/20 rounded-lg p-1">
                     <div className="grid grid-cols-10 gap-1">
                       {Array.from({ length: 10 }).map((_, index) => (
-                        <div key={index} className="h-2 rounded-sm bg-red-950/30" />
+                        <div key={index} className="h-2 rounded-sm bg-primary/30" />
                       ))}
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-black/50 border border-red-800/20 rounded-lg p-4">
+                <div className="bg-black/50 border border-primary/20 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center">
-                      {activeTab === "weapon" && <Sword className="h-5 w-5 text-red-500 mr-2" />}
-                      {activeTab === "armor" && <Shield className="h-5 w-5 text-red-500 mr-2" />}
-                      {activeTab === "accessory" && <Zap className="h-5 w-5 text-red-500 mr-2" />}
+                      {activeTab === "weapon" && <Sword className="h-5 w-5 text-primary mr-2" />}
+                      {activeTab === "armor" && <Shield className="h-5 w-5 text-primary mr-2" />}
+                      {activeTab === "accessory" && <Zap className="h-5 w-5 text-primary mr-2" />}
                       <h4 className="text-white font-medium">Bonus Actuel</h4>
                     </div>
                   </div>
@@ -60,9 +60,9 @@ export default function UpgradeSystem() {
                   </p>
                 </div>
 
-                <div className="bg-black/50 border border-red-800/20 rounded-lg p-4">
+                <div className="bg-black/50 border border-primary/20 rounded-lg p-4">
                   <div className="flex items-center mb-3">
-                    <Sword className="h-5 w-5 text-red-500 mr-2" />
+                    <Sword className="h-5 w-5 text-primary mr-2" />
                     <h4 className="text-white font-medium">Prochaine Amélioration</h4>
                   </div>
 
@@ -87,7 +87,7 @@ export default function UpgradeSystem() {
         </div>
 
         <div>
-          <Card className="bg-gradient-to-r from-black to-red-950/30 backdrop-blur-sm border-red-800/30 overflow-hidden h-full">
+          <Card className="bg-gradient-to-r from-black to-primary/30 backdrop-blur-sm border-primary/30 overflow-hidden h-full">
             <CardContent className="p-0">
               <div className="relative h-64">
                 <Image src="/forge-mystique.jpeg" alt="Forge Mystique" fill className="object-cover" />
@@ -102,9 +102,9 @@ export default function UpgradeSystem() {
                 <h4 className="text-lg font-medium text-white mb-4">Avantages des Améliorations</h4>
 
                 <div className="space-y-4 mb-6">
-                  <div className="bg-black/50 border border-red-800/20 rounded-lg p-4">
+                  <div className="bg-black/50 border border-primary/20 rounded-lg p-4">
                     <div className="flex items-center mb-2">
-                      <Sword className="h-5 w-5 text-red-500 mr-2" />
+                      <Sword className="h-5 w-5 text-primary mr-2" />
                       <h5 className="text-white font-medium">Armes</h5>
                     </div>
                     <p className="text-white/70 text-sm mb-2">
@@ -113,15 +113,15 @@ export default function UpgradeSystem() {
                     <div className="grid grid-cols-5 gap-1">
                       {Array.from({ length: 5 }).map((_, index) => (
                         <div key={index} className="text-center">
-                          <div className={`h-1 ${index < 4 ? "bg-red-600" : "bg-red-950/30"}`} />
+                          <div className={`h-1 ${index < 4 ? "bg-primary" : "bg-primary/30"}`} />
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-black/50 border border-red-800/20 rounded-lg p-4">
+                  <div className="bg-black/50 border border-primary/20 rounded-lg p-4">
                     <div className="flex items-center mb-2">
-                      <Shield className="h-5 w-5 text-red-500 mr-2" />
+                      <Shield className="h-5 w-5 text-primary mr-2" />
                       <h5 className="text-white font-medium">Armures</h5>
                     </div>
                     <p className="text-white/70 text-sm mb-2">
@@ -130,15 +130,15 @@ export default function UpgradeSystem() {
                     <div className="grid grid-cols-5 gap-1">
                       {Array.from({ length: 5 }).map((_, index) => (
                         <div key={index} className="text-center">
-                          <div className={`h-1 ${index < 5 ? "bg-red-600" : "bg-red-950/30"}`} />
+                          <div className={`h-1 ${index < 5 ? "bg-primary" : "bg-primary/30"}`} />
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-black/50 border border-red-800/20 rounded-lg p-4">
+                  <div className="bg-black/50 border border-primary/20 rounded-lg p-4">
                     <div className="flex items-center mb-2">
-                      <Zap className="h-5 w-5 text-red-500 mr-2" />
+                      <Zap className="h-5 w-5 text-primary mr-2" />
                       <h5 className="text-white font-medium">Accessoires</h5>
                     </div>
                     <p className="text-white/70 text-sm mb-2">
@@ -147,7 +147,7 @@ export default function UpgradeSystem() {
                     <div className="grid grid-cols-5 gap-1">
                       {Array.from({ length: 5 }).map((_, index) => (
                         <div key={index} className="text-center">
-                          <div className={`h-1 ${index < 3 ? "bg-red-600" : "bg-red-950/30"}`} />
+                          <div className={`h-1 ${index < 3 ? "bg-primary" : "bg-primary/30"}`} />
                         </div>
                       ))}
                     </div>
