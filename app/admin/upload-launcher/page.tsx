@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Upload, Check, AlertCircle, Loader2 } from "lucide-react"
@@ -12,15 +12,20 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 export default function UploadLauncherPage() {
   const [file, setFile] = useState<File | null>(null)
   const [uploading, setUploading] = useState(false)
+  const [uploadProgress, setUploadProgress] = useState(0)
   const [uploadStatus, setUploadStatus] = useState<{
     success?: boolean
     message?: string
     url?: string
+    error?: string
   }>({})
+
+  const formRef = useRef<HTMLFormElement>(null)
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setFile(e.target.files[0])
+      setUploadStatus({}) // Réinitialiser le statut
     }
   }
 
@@ -29,17 +34,21 @@ export default function UploadLauncherPage() {
     if (!file) return
 
     setUploading(true)
+    setUploadProgress(0)
     setUploadStatus({})
 
+    // Utiliser FormData pour l'upload
     const formData = new FormData()
     formData.append("file", file)
 
     try {
+      // Utiliser fetch avec un timeout plus long
       const response = await fetch("/api/upload-launcher", {
         method: "POST",
         body: formData,
       })
 
+      // Analyser la réponse
       const result = await response.json()
 
       if (response.ok) {
@@ -51,7 +60,8 @@ export default function UploadLauncherPage() {
       } else {
         setUploadStatus({
           success: false,
-          message: result.error || "Erreur lors de l'upload",
+          message: "Erreur lors de l'upload",
+          error: result.error || "Erreur inconnue",
         })
       }
     } catch (error) {
@@ -59,9 +69,18 @@ export default function UploadLauncherPage() {
       setUploadStatus({
         success: false,
         message: "Erreur de connexion au serveur",
+        error: error instanceof Error ? error.message : "Erreur inconnue",
       })
     } finally {
       setUploading(false)
+      setUploadProgress(0)
+    }
+  }
+
+  // Méthode alternative d'upload via un formulaire standard
+  const handleDirectSubmit = () => {
+    if (formRef.current && file) {
+      formRef.current.submit()
     }
   }
 
@@ -148,8 +167,22 @@ export default function UploadLauncherPage() {
                     <AlertTitle className={uploadStatus.success ? "text-green-500" : "text-red-500"}>
                       {uploadStatus.success ? "Succès" : "Erreur"}
                     </AlertTitle>
-                    <AlertDescription className="text-white/80">{uploadStatus.message}</AlertDescription>
+                    <AlertDescription className="text-white/80">
+                      {uploadStatus.message}
+                      {uploadStatus.error && (
+                        <div className="mt-2 text-red-400 text-sm">Détails: {uploadStatus.error}</div>
+                      )}
+                    </AlertDescription>
                   </Alert>
+                )}
+
+                {uploading && (
+                  <div className="w-full bg-gray-700 rounded-full h-2.5">
+                    <div className="bg-primary h-2.5 rounded-full" style={{ width: `${uploadProgress}%` }}></div>
+                    <p className="text-white/60 text-sm mt-2 text-center">
+                      Upload en cours... Veuillez patienter, cela peut prendre plusieurs minutes.
+                    </p>
+                  </div>
                 )}
 
                 {uploadStatus.success && uploadStatus.url && (
@@ -180,8 +213,19 @@ export default function UploadLauncherPage() {
                   </div>
                 )}
               </form>
+
+              {/* Formulaire alternatif pour l'upload direct */}
+              <form
+                ref={formRef}
+                action="/api/upload-direct"
+                method="post"
+                encType="multipart/form-data"
+                className="hidden"
+              >
+                <input type="file" name="file" id="direct-file" />
+              </form>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="flex flex-col gap-4">
               <Button
                 type="submit"
                 onClick={handleSubmit}
@@ -197,6 +241,16 @@ export default function UploadLauncherPage() {
                   "Uploader le Launcher"
                 )}
               </Button>
+
+              {file && !uploading && (
+                <div className="text-white/60 text-sm text-center">
+                  Si vous rencontrez des problèmes avec l'upload, essayez de{" "}
+                  <a href={`/telecharger?direct=true`} className="text-primary hover:underline">
+                    télécharger directement
+                  </a>{" "}
+                  le launcher actuel.
+                </div>
+              )}
             </CardFooter>
           </Card>
 

@@ -1,33 +1,44 @@
-import { list } from "@vercel/blob"
 import { NextResponse } from "next/server"
+import fs from "fs"
+import path from "path"
+
+// Fonction pour lire l'URL depuis un fichier JSON
+async function getLauncherUrl() {
+  try {
+    const filePath = path.join(process.cwd(), "data", "launcher-url.json")
+
+    if (fs.existsSync(filePath)) {
+      const data = JSON.parse(fs.readFileSync(filePath, "utf8"))
+      return data
+    }
+
+    return null
+  } catch (error) {
+    console.error("Erreur lors de la lecture de l'URL:", error)
+    return null
+  }
+}
 
 export async function GET(): Promise<NextResponse> {
   try {
-    // Récupérer la liste des blobs avec le préfixe "launcher.zip"
-    const { blobs } = await list({ prefix: "launcher.zip" })
+    // Essayer d'abord de récupérer depuis le fichier JSON
+    const data = await getLauncherUrl()
 
-    // Vérifier si le launcher existe
-    if (blobs.length > 0) {
-      // Trier par date de création (le plus récent en premier)
-      const sortedBlobs = blobs.sort((a, b) => {
-        return new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
-      })
-
-      // Retourner l'URL du launcher le plus récent
+    if (data && data.url) {
       return NextResponse.json({
         success: true,
-        url: sortedBlobs[0].url,
-        version: sortedBlobs[0].uploadedAt,
+        url: data.url,
+        updatedAt: data.updatedAt,
       })
     }
 
-    // Si aucun launcher n'est trouvé
+    // Si aucune URL n'est trouvée
     return NextResponse.json({
       success: false,
       message: "Aucun launcher disponible",
     })
   } catch (error) {
-    console.error("Erreur lors de la récupération de l'URL du launcher:", error)
+    console.error("Erreur:", error)
     return NextResponse.json({ error: "Erreur serveur" }, { status: 500 })
   }
 }
