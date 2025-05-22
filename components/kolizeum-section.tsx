@@ -4,11 +4,25 @@ import { Trophy, Users, Shield, Swords, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { kolizeumData } from "@/data/kolizeum-data"
 
 export default function KolizeumSection() {
-  // Récupérer les 5 premiers joueurs du classement
-  const topPlayers = kolizeumData.slice(0, 5)
+  // Top 5 joueurs du classement PvP
+  const topPlayers = [
+    { id: 1, rank: 1, name: "Yago", class: "Sacri-Iop", server: "STASIS", level: 200, rating: 3915, winRate: 100 },
+    { id: 2, rank: 2, name: "Aes", class: "Cra-Sram", server: "STASIS", level: 200, rating: 3903, winRate: 100 },
+    { id: 3, rank: 3, name: "Epsylos", class: "Eni-Xelor", server: "STASIS", level: 200, rating: 3881, winRate: 100 },
+    { id: 4, rank: 4, name: "Adboy", class: "Feca-Pandawa", server: "STASIS", level: 200, rating: 3875, winRate: 100 },
+    {
+      id: 5,
+      rank: 5,
+      name: "Jover-Skill",
+      class: "Eca-Trope",
+      server: "STASIS",
+      level: 200,
+      rating: 3870,
+      winRate: 100,
+    },
+  ]
 
   // Fonction pour obtenir la couleur de la classe hybride
   const getClassColor = (className: string) => {
@@ -156,7 +170,7 @@ export default function KolizeumSection() {
               </div>
 
               <Link href="/nous-rejoindre">
-                <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary hover:to-accent text-white border-0 w-full">
+                <Button className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary hover:to-accent text-white border-0">
                   Nous-rejoindre
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

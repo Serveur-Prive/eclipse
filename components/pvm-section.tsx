@@ -7,42 +7,27 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export default function PvmSection() {
   const topPvmHunters = [
-    {
-      id: 1,
-      name: "Juliet",
-      class: "Sacri-Iop",
-      level: 200,
-      dungeonCompletions: 150,
-    },
-    {
-      id: 2,
-      name: "Cpt-Morgan",
-      class: "Forgelance",
-      level: 200,
-      dungeonCompletions: 145,
-    },
-    {
-      id: 3,
-      name: "Cuentito",
-      class: "Eni-Xelor",
-      level: 200,
-      dungeonCompletions: 140,
-    },
-    {
-      id: 4,
-      name: "Totosh",
-      class: "Cra-Sram",
-      level: 200,
-      dungeonCompletions: 135,
-    },
-    {
-      id: 5,
-      name: "Roger-grauvier",
-      class: "Feca-Pandawa",
-      level: 200,
-      dungeonCompletions: 130,
-    },
+    { id: 1, rank: 1, name: "Zalda", class: "Pandawa-Zobal-Eni", level: 200, dungeonCompletions: 187 },
+    { id: 2, rank: 2, name: "Derbest", class: "Ouginak", level: 200, dungeonCompletions: 176 },
+    { id: 3, rank: 3, name: "Mutimutimutimutim", class: "Eca-Sadida", level: 200, dungeonCompletions: 165 },
+    { id: 4, rank: 4, name: "Krugeri", class: "Steamer-Enutrof", level: 200, dungeonCompletions: 159 },
+    { id: 5, rank: 5, name: "Gorr", class: "Sacrieur", level: 200, dungeonCompletions: 152 },
   ]
+
+  // Fonction pour obtenir la couleur de la classe hybride
+  const getClassColor = (className) => {
+    if (className.includes("-")) {
+      // C'est une classe hybride
+      if (className.split("-").length > 2) {
+        // Triple classe
+        return "text-purple-400"
+      }
+      // Double classe
+      return "text-cyan-400"
+    }
+    // Classe simple
+    return "text-white/50"
+  }
 
   return (
     <div className="max-w-6xl mx-auto relative z-10">
@@ -95,6 +80,11 @@ export default function PvmSection() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-bold text-white">Top 5 Chasseurs PvM</h3>
+                <Link href="/classement?tab=pvm">
+                  <Button variant="link" className="text-primary hover:text-primary p-0">
+                    Voir tout
+                  </Button>
+                </Link>
               </div>
 
               <div className="space-y-4 mb-6">
@@ -104,8 +94,15 @@ export default function PvmSection() {
                     className="bg-black/70 border border-primary/20 rounded-lg p-4 flex items-center justify-between"
                   >
                     <div>
-                      <h5 className="text-white font-medium">{hunter.name}</h5>
-                      <p className="text-sm text-primary">{hunter.class}</p>
+                      <div className="flex items-center">
+                        <div className="bg-gradient-to-r from-primary to-accent text-white w-6 h-6 rounded-full flex items-center justify-center mr-2">
+                          {index + 1}
+                        </div>
+                        <div>
+                          <h5 className="text-white font-medium">{hunter.name}</h5>
+                          <p className={`text-sm ${getClassColor(hunter.class)}`}>{hunter.class}</p>
+                        </div>
+                      </div>
                     </div>
                     <div className="text-right">
                       <span className="text-primary font-bold">{hunter.dungeonCompletions}</span>
@@ -114,6 +111,12 @@ export default function PvmSection() {
                   </div>
                 ))}
               </div>
+
+              <Link href="/classement?tab=pvm">
+                <Button variant="outline" className="border-primary/30 text-white hover:bg-primary/20 w-full">
+                  Voir le Classement Complet
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         </div>
