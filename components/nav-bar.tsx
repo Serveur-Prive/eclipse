@@ -27,7 +27,7 @@ export default function NavBar() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-            STASIS
+            OMBREFUS
           </span>
         </Link>
         <nav className="hidden md:flex gap-6">

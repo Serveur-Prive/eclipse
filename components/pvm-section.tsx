@@ -7,11 +7,35 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export default function PvmSection() {
   const topPvmHunters = [
-    { id: 1, rank: 1, name: "Zalda", class: "Pandawa-Zobal-Eni", level: 200, dungeonCompletions: 187 },
-    { id: 2, rank: 2, name: "Derbest", class: "Ouginak", level: 200, dungeonCompletions: 176 },
-    { id: 3, rank: 3, name: "Mutimutimutimutim", class: "Eca-Sadida", level: 200, dungeonCompletions: 165 },
-    { id: 4, rank: 4, name: "Krugeri", class: "Steamer-Enutrof", level: 200, dungeonCompletions: 159 },
-    { id: 5, rank: 5, name: "Gorr", class: "Sacrieur", level: 200, dungeonCompletions: 152 },
+    {
+      id: 1,
+      rank: 1,
+      name: "Zalda",
+      class: "Pandawa-Zobal-Eni",
+      server: "OMBREFUS",
+      level: 200,
+      dungeonCompletions: 187,
+    },
+    { id: 2, rank: 2, name: "Derbest", class: "Ouginak", server: "OMBREFUS", level: 200, dungeonCompletions: 176 },
+    {
+      id: 3,
+      rank: 3,
+      name: "Mutimutimutimutim",
+      class: "Eca-Sadida",
+      server: "OMBREFUS",
+      level: 200,
+      dungeonCompletions: 165,
+    },
+    {
+      id: 4,
+      rank: 4,
+      name: "Krugeri",
+      class: "Steamer-Enutrof",
+      server: "OMBREFUS",
+      level: 200,
+      dungeonCompletions: 159,
+    },
+    { id: 5, rank: 5, name: "Gorr", class: "Sacrieur", server: "OMBREFUS", level: 200, dungeonCompletions: 152 },
   ]
 
   // Fonction pour obtenir la couleur de la classe hybride

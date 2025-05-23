@@ -57,7 +57,7 @@ export default function BoutiquePage() {
         <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-              STASIS
+              OMBREFUS
             </span>
           </Link>
           <Link href="/">
@@ -79,7 +79,7 @@ export default function BoutiquePage() {
           >
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Boutique</span>{" "}
-              STASIS
+              OMBREFUS
             </h1>
             <p className="text-xl text-white/70 max-w-2xl mx-auto">Notre boutique est actuellement disponible en jeu</p>
           </motion.div>
@@ -93,8 +93,8 @@ export default function BoutiquePage() {
                   </div>
                   <h2 className="text-2xl font-bold text-white mb-4">Boutique en jeu</h2>
                   <p className="text-white/70 mb-6">
-                    Vous pouvez toujours profiter de nos offres directement en jeu. Connectez-vous à STASIS et accédez à
-                    notre boutique complète avec tous les articles exclusifs et promotions.
+                    Vous pouvez toujours profiter de nos offres directement en jeu. Connectez-vous à OMBREFUS et accédez
+                    à notre boutique complète avec tous les articles exclusifs et promotions.
                   </p>
                   <div className="bg-black/40 rounded-lg p-4 border border-primary/20 mb-6 w-full">
                     <div className="flex items-start">
@@ -153,7 +153,7 @@ export default function BoutiquePage() {
         <div className="container px-4 py-6 md:px-6">
           <div className="text-center">
             <p className="text-xs text-white/50">
-              &copy; 2025 Dofus STASIS. Tous droits réservés. Non affilié à Ankama Games.
+              &copy; 2025 Dofus OMBREFUS. Tous droits réservés. Non affilié à Ankama Games.
             </p>
           </div>
         </div>

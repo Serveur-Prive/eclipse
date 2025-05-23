@@ -8,16 +8,25 @@ import { Card, CardContent } from "@/components/ui/card"
 export default function KolizeumSection() {
   // Top 5 joueurs du classement PvP
   const topPlayers = [
-    { id: 1, rank: 1, name: "Yago", class: "Sacri-Iop", server: "STASIS", level: 200, rating: 3915, winRate: 100 },
-    { id: 2, rank: 2, name: "Aes", class: "Cra-Sram", server: "STASIS", level: 200, rating: 3903, winRate: 100 },
-    { id: 3, rank: 3, name: "Epsylos", class: "Eni-Xelor", server: "STASIS", level: 200, rating: 3881, winRate: 100 },
-    { id: 4, rank: 4, name: "Adboy", class: "Feca-Pandawa", server: "STASIS", level: 200, rating: 3875, winRate: 100 },
+    { id: 1, rank: 1, name: "Yago", class: "Sacri-Iop", server: "OMBREFUS", level: 200, rating: 3915, winRate: 100 },
+    { id: 2, rank: 2, name: "Aes", class: "Cra-Sram", server: "OMBREFUS", level: 200, rating: 3903, winRate: 100 },
+    { id: 3, rank: 3, name: "Epsylos", class: "Eni-Xelor", server: "OMBREFUS", level: 200, rating: 3881, winRate: 100 },
+    {
+      id: 4,
+      rank: 4,
+      name: "Adboy",
+      class: "Feca-Pandawa",
+      server: "OMBREFUS",
+      level: 200,
+      rating: 3875,
+      winRate: 100,
+    },
     {
       id: 5,
       rank: 5,
       name: "Jover-Skill",
       class: "Eca-Trope",
-      server: "STASIS",
+      server: "OMBREFUS",
       level: 200,
       rating: 3870,
       winRate: 100,

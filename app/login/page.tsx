@@ -58,7 +58,7 @@ export default function LoginPage() {
         <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-              STASIS
+              OMBREFUS
             </span>
           </Link>
           <Link href="/">
@@ -169,7 +169,7 @@ export default function LoginPage() {
         <div className="container px-4 py-6 md:px-6">
           <div className="text-center">
             <p className="text-xs text-white/50">
-              &copy; 2025 Dofus STASIS. Tous droits réservés. Non affilié à Ankama Games.
+              &copy; 2025 Dofus OMBREFUS. Tous droits réservés. Non affilié à Ankama Games.
             </p>
           </div>
         </div>

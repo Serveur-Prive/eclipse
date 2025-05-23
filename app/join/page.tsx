@@ -23,7 +23,7 @@ export default function JoinPage() {
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.png" alt="Dofus Echoes Logo" width={40} height={40} className="w-10 h-10" />
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500">
-              ECHOES 2.51
+              OMBREFUS 2.51
             </span>
           </Link>
           <Link href="/">
@@ -47,7 +47,7 @@ export default function JoinPage() {
               <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Rejoignez l'Aventure{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500">
-                  Dofus Echoes 2.51
+                  Dofus OMBREFUS 2.51
                 </span>
               </h1>
               <p className="text-xl text-white/70 max-w-2xl mx-auto">
@@ -293,7 +293,7 @@ export default function JoinPage() {
         <div className="container px-4 py-6 md:px-6">
           <div className="text-center">
             <p className="text-xs text-white/50">
-              &copy; 2025 Dofus Echoes 2.51. Tous droits réservés. Non affilié à Ankama Games.
+              &copy; 2025 Dofus OMBREFUS 2.51. Tous droits réservés. Non affilié à Ankama Games.
             </p>
           </div>
         </div>

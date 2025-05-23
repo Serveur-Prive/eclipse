@@ -59,7 +59,7 @@ export default function Home() {
                   <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
                     DOFUS{" "}
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-                      STASIS
+                      OMBREFUS
                     </span>
                   </h1>
                   <p className="text-xl text-foreground/80 max-w-2xl">
@@ -394,7 +394,7 @@ export default function Home() {
         <div className="container px-4 py-6 md:px-6">
           <div className="text-center">
             <p className="text-xs text-foreground/50">
-              &copy; 2025 Dofus STASIS. Tous droits réservés. Non affilié à Ankama Games.
+              &copy; 2025 Dofus OMBREFUS. Tous droits réservés. Non affilié à Ankama Games.
             </p>
           </div>
         </div>

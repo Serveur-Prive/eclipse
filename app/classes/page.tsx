@@ -523,7 +523,7 @@ export default function ClassesPage() {
         <div className="container px-4 py-8 md:px-6">
           <div className="text-center">
             <p className="text-xs text-white/50">
-              &copy; {new Date().getFullYear()} Dofus Eraziel 2.51. Tous droits réservés. Non affilié à Ankama Games.
+              &copy; {new Date().getFullYear()} Dofus OMBREFUS 2.51. Tous droits réservés. Non affilié à Ankama Games.
             </p>
           </div>
         </div>

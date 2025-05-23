@@ -22,7 +22,7 @@ export default function NousRejoindre() {
         <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-              STASIS
+              OMBREFUS
             </span>
           </Link>
           <Link href="/">
@@ -46,7 +46,7 @@ export default function NousRejoindre() {
               <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Comment Rejoindre{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-                  Dofus STASIS
+                  Dofus OMBREFUS
                 </span>
               </h1>
               <p className="text-xl text-white/70 max-w-2xl mx-auto">
@@ -131,7 +131,7 @@ export default function NousRejoindre() {
                     </div>
 
                     <p className="text-white/70 mb-6 pl-11">
-                      Téléchargez notre launcher personnalisé pour accéder facilement au serveur Dofus STASIS.
+                      Téléchargez notre launcher personnalisé pour accéder facilement au serveur Dofus OMBREFUS.
                     </p>
 
                     <div className="bg-black/50 border border-primary/20 rounded-lg p-4 mb-6">
@@ -153,7 +153,7 @@ export default function NousRejoindre() {
                         </li>
                       </ul>
                       <a
-                        href="https://github.com/Serveur-Prive/mon/releases/download/tttt/STASIS_Launcher.zip"
+                        href="https://github.com/Serveur-Prive/ombrefus/releases/download/ombrefus/Ombrefus_Serveur_Launcher.zip"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block w-full mt-4"
@@ -224,8 +224,8 @@ export default function NousRejoindre() {
               >
                 <h2 className="text-2xl font-bold text-white mb-4">Prêt à commencer l'aventure ?</h2>
                 <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-                  Suivez les étapes ci-dessus et rejoignez des milliers de joueurs dans l'univers unique de Dofus STASIS
-                  !
+                  Suivez les étapes ci-dessus et rejoignez des milliers de joueurs dans l'univers unique de Dofus
+                  OMBREFUS !
                 </p>
                 <Link href="/register">
                   <Button size="lg" className="bg-gradient-to-r from-primary to-accent text-white border-0">
@@ -244,7 +244,7 @@ export default function NousRejoindre() {
         <div className="container px-4 py-6 md:px-6">
           <div className="text-center">
             <p className="text-xs text-white/50">
-              &copy; 2025 Dofus STASIS. Tous droits réservés. Non affilié à Ankama Games.
+              &copy; 2025 Dofus OMBREFUS. Tous droits réservés. Non affilié à Ankama Games.
             </p>
           </div>
         </div>
